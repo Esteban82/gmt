@@ -91,7 +91,7 @@ jobs:
           elif [ "$RUNNER_OS" = "macOS" ]; then
             bash ci/install-dependencies-macos.sh
           elif [ "$RUNNER_OS" = "Windows" ]; then
-            bash ci/install-dependencies-winodws.sh
+            bash ci/install-dependencies-windows.sh
           fi
         shell: bash
         env:
