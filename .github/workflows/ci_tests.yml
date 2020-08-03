@@ -93,6 +93,7 @@ jobs:
           elif [ "$RUNNER_OS" = "Windows" ]; then
             bash ci/install-dependencies-winodws.sh
           fi
+        shell: bash
         env:
           RUN_TESTS: ${{ matrix.RUN_TESTS }}
           BUILD_DOCS: ${{ matrix.BUILD_DOCS }}
