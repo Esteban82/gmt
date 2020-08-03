@@ -65,12 +65,20 @@ jobs:
           #   PACKAGE     : true
           #   RUN_TESTS   : false
 
-          - name: macOS - Tests
-            os: macos-latest
+          # - name: macOS - Tests
+          #   os: macos-latest
+          #   BUILD_DOCS  : false
+          #   DEPLOY_DOCS : false
+          #   PACKAGE     : false
+          #   RUN_TESTS   : true
+
+          # Windows
+          - name: Windows - Compile only
+            os: windows-latest
             BUILD_DOCS  : false
             DEPLOY_DOCS : false
             PACKAGE     : false
-            RUN_TESTS   : true
+            RUN_TESTS   : false
 
     steps:
       - name: Checkout
@@ -81,7 +89,9 @@ jobs:
           if [ "$RUNNER_OS" = "Linux" ]; then
             bash ci/install-dependencies-linux.sh
           elif [ "$RUNNER_OS" = "macOS" ]; then
-            bash ci/install-dependencies-macOS.sh
+            bash ci/install-dependencies-macos.sh
+          elif [ "$RUNNER_OS" = "Windows" ]; then
+            bash ci/install-dependencies-winodws.sh
           fi
         env:
           RUN_TESTS: ${{ matrix.RUN_TESTS }}
